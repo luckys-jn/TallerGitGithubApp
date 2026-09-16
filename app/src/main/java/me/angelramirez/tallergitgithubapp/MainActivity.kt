@@ -42,16 +42,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TallerGitGithubAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(modifier = Modifier.padding(innerPadding)) {
-                        MifotodePerfil()
                     }
                 }
             }
-        }
-    }
-}
+
+
 
 @Preview(
     showBackground = true,
@@ -63,14 +58,16 @@ fun MifotodePerfil() {
         modifier = Modifier
             .background(Color.White)
             .fillMaxSize()
-            .padding(top = 40.dp, bottom = 24.dp, start = 24.dp, end = 24.dp), // Agregamos márgenes a los lados y abajo
+            .padding(top = 40.dp, bottom = 24.dp, start = 24.dp, end = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceBetween // Cambiado a SpaceBetween para empujar el botón abajo
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
-        // Envolvemos todo el contenido superior en otra columna para que se mantenga arriba
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+
         ) {
             Image(
                 painter = painterResource(id = R.drawable.yopro3),
@@ -109,19 +106,50 @@ fun MifotodePerfil() {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.Start
             ) {
-                Text(text = "Edad", fontSize = 11.sp, color = Color.Gray)
+                Text(text = "edad", fontSize = 11.sp, color = Color.Gray)
                 Text(text = "19 años", fontSize = 16.sp, color = Color.Black)
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                Text(text = "Correo", fontSize = 11.sp, color = Color.Gray)
+                Text(text = "correo", fontSize = 11.sp, color = Color.Gray)
                 Text(text = "aramirez181@unab.edu.co", fontSize = 16.sp, color = Color.Blue)
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                Text(text = "Ciudad", fontSize = 11.sp, color = Color.Gray)
+                Text(text = "ciudad", fontSize = 11.sp, color = Color.Gray)
                 Text(text = "Bucaramanga, Colombia", fontSize = 16.sp, color = Color.Black)
             }
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            HorizontalDivider(color = Color.Gray, thickness = 1.dp)
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = "sobre mi materia favorita",
+                    fontSize = 11.sp,
+                    color = Color.Gray,
+                    textAlign = TextAlign.Center
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                Text(
+                    text = "Desarollo de Multimedios porque me agrada el profe leonardo, ya no odio tanto AutoDesk Maya, es divertido y se aprende bastante",
+                    fontSize = 14.sp,
+                    color = Color.Gray,
+                    lineHeight = 20.sp,
+                    textAlign = TextAlign.Start,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+
+            Spacer(modifier = Modifier.height(24.dp))
         }
 
         Button(
